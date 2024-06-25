@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiac Prediction</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <style>
+        /* CSS styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: url("https://images.unsplash.com/photo-1502318217862-aa4e294ba657?q=80&w=1915&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff17;
+            z-index: 1000;
+            height: 80px; /* Set a fixed height for the header */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        }
+
+        .logo img {
+            max-height: 60px; /* Adjust logo height */
+            height: auto;
+            cursor: pointer;
+        }
+
+        .navigation a {
+            position: relative;
+            font-size: 1.1em;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 40px;
+            border: none;
+        }
+
+        .navigation a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 3px;
+            background: #fff;
+            border-radius: 5px;
+            transform: scaleX(0);
+            transition: transform .5s;
+        }
+
+        .navigation a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .navigation .btnLogin-popup {
+            width: 130px;
+            height: 50px;
+            background: transparent;
+            border: 2px solid transparent;
+            outline: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            color: #ffffff;
+            font-size: 500;
+            margin-left: 40px;
+        }
+
+        .navigation .btnLogin-popup:hover {
+            background: #ffffff;
+            color: #162938;
+        }
+
+        /* Form styles */
+        .container {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            border: 2px solid rgba(255, 255, 255, .2);
+            border-radius: 40px;
+            font-size: 16px;
+            color: #ffffff;
+            padding: 20px 45px 20px 20px;
+            box-sizing: border-box; /* Add this line */
+        }
+
+        h2.form-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .smoking-years {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="C:\Users\DiGiView\Downloads\cardiac-predict-high-resolution-logo-transparent.png" alt="Logo">
+    </div>
+    <nav class="navigation">
+        <a href="C:\Users\DiGiView\OneDrive\Desktop\project\Home.html">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <button class="btnLogin-popup"><a href="C:\Users\DiGiView\OneDrive\Desktop\project\Loginpage.html">Login</a></button>
+    </nav>
+</header>
+
+<div class="container">
+    <h2 class="form-title">Heart Disease Prediction Form</h2>
+    <form action="your_server_script" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="sex">Sex:</label>
+        <select id="sex" name="sex" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="BMI">Body Mass Index:</label>
+        <input type="number" id="BMI" name="BMI" required>
+
+        <label for="smoking">Smoking Habit:</label>
+        <select id="smoking" name="smoking" required>
+            <option value="">Select Smoking Habit</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <div class="smoking-years">
+            <label for="smokingYears">Years of Smoking:</label>
+            <input type="number" id="smokingYears" name="smokingYears">
+        </div>
+
+        <label for="Alcohol">Alcohol Addict:</label>
+        <select id="Alcohol" name="Alcohol" required>
+            <option value="">Alcohol Addiction Status</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <div class="AlcoholAddict-years">
+            <label for="AlcoholAddictyears">Years of Alcohol Consumption</label>
+            <input type="number" id="AlcoholAddictyears" name="AlcoholAddictyears">
+        </div>
+
+        <label for="Stroke">Have you Ever Had Stroke Before:</label>
+        <select id="Stroke" name="Stroke" required>
+            <option value="">Stroke Status</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="PhysicalHealth">Physical Health:</label>
+        <input type="number" id="PhysicalHealth" name="PhysicalHealth" required>
+
+        <label for="MentalHealth">Mental Health:</label>
+        <input type="number" id="MentalHealth" name="MentalHealth" required>
+
+        <label for="bloodPressure">Blood Pressure (mmHg):</label>
+        <input type="number" id="bloodPressure" name="bloodPressure" required>
+
+        <label for="cholesterol">Cholesterol Level (mg/dL):</label>
+        <input type="number" id="cholesterol" name="cholesterol" required>
+
+        <label for="diabetes">Diabetes Status:</label>
+        <select id="diabetes" name="diabetes" required>
+            <option value="">Select Diabetes Status</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="fastingBloodSugar">Fasting Blood Sugar:</label>
+        <select id="fastingBloodSugar" name="fastingBloodSugar" required>
+            <option value="">Select Fasting Blood Sugar</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="DiffWalking">Do you Walk:</label>
+        <select id="DiffWalking" name="DiffWalking" required>
+            <option value="">Walking Status</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="PhysicalActivity">Physical Activity:</label>
+        <select id="PhysicalActivity" name="PhysicalActivity" required>
+            <option value="">Physical Activity Status</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="Sleeptime">Sleeping Time:</label>
+        <input type="number" id="Sleeptime" name="Sleeptime" required>
+
+        <label for="Asthma">Do you suffer from Asthma:</label>
+        <select id="Asthma" name="Asthma" required>
+            <option value="">Asthma Status</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="Kidneydisease">Do you have a Kidney Disease:</label>
+        <select id="Kidneydisease" name="Kidneydisease" required>
+            <option value="">Kidney Disease Status</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="Skincancer">Do you suffer from Skin Cancer:</label>
+        <select id="Skincancer" name="Skincancer" required>
+            <option value="">Skin Cancer Status</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+
+        <!-- Other fields remain unchanged -->
+        <form action="Result(1).html" method="post">
+            <button type="submit">Submit</button>
+        <input type="submit" value="Predict">
+    </form>
+</div>
+
+<script>
+    document.getElementById('smoking').addEventListener('change', function() {
+        var smokingYearsDiv = document.querySelector('.smoking-years');
+        if (this.value === 'yes') {
+            smokingYearsDiv.style.display = 'block';
+            document.getElementById('smokingYears').setAttribute('required', 'required');
+        } else {
+            smokingYearsDiv.style.display = 'none';
+            document.getElementById('smokingYears').removeAttribute('required');
+        }
+    });
+</script>
+
+</body>
+</html>
+

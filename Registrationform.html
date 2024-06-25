@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: url("https://imgs.search.brave.com/RMcfd-tdyQbufQDeXRA2chsevpe85F1tg1srl603IBI/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDYxMjcz/NTQuanBn") no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .wrapper {
+        width: 420px;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        color: #fff;
+        border-radius: 10px;
+        padding: 30px 40px;
+    }
+
+    .wrapper h1 {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .wrapper .input-box {
+        width: 100%;
+        margin: 30px 0;
+    }
+
+    .input-box input {
+        width: 100%;
+        height: 45px;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.6);
+        border-radius: 40px;
+        font-size: 16px;
+        color: #fff;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .input-box input::placeholder {
+        color: #fff;
+    }
+
+    .wrapper .btn {
+        width: 100%;
+        height: 45px;
+        background: #fff;
+        border: none;
+        outline: none;
+        border-radius: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        font-size: 16px;
+        color: #333;
+        font-weight: 600;
+    }
+
+    .wrapper .register-link {
+        font-size: 14.5px;
+        text-align: center;
+        margin: 20px 0 15px;
+    }
+
+    .register-link p a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .register-link p a:hover {
+        text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Registration Form</h1>
+  <div class="wrapper">
+    <form onsubmit="submitHandler()">
+      <div class="input-box">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="input-box">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="input-box">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <input type="submit" value="Register" class="btn">
+    </form>
+    <div class="register-link">
+      <p>Already have an account? <a href="C:\Users\DiGiView\OneDrive\Desktop\project\Loginpage.html">Login</a></p>
+    </div>
+  </div>
+
+  <script>
+    function submitHandler(){
+        event.preventDefault();
+
+        // Get form values
+        var username = document.getElementById('username').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        // Construct the data object to be saved in local storage
+        var data = {
+            username: username,
+            email: email,
+            password: password
+        };
+
+        // Convert the data object to a string and store it in local storage
+        localStorage.setItem("userData", JSON.stringify(data));
+
+        // Optionally, you can display a success message or perform other actions here
+        console.log("Form data saved in local storage:", data);
+    };
+  </script>
+
+
+</body>
+</html>

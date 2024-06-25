@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            margin-bottom: 10px;
+        }
+
+        .result-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Heart Disease Prediction Result</h1>
+    <div class="result">
+        <div class="result-item">
+            <span class="result-label">Accuracy:</span>
+            <span class="result-value" id="accuracy">85%</span>
+        </div>
+        <div class="result-item">
+            <span class="result-label">Precision:</span>
+            <span class="result-value" id="precision">78%</span>
+        </div>
+        <div class="result-item">
+            <span class="result-label">Recall:</span>
+            <span class="result-value" id="recall">82%</span>
+        </div>
+        <div class="result-item">
+            <span class="result-label">F1 Score:</span>
+            <span class="result-value" id="f1_score">80%</span>
+        </div>
+        <div class="result-item">
+            <span class="result-label">Cohen's Kappa Score:</span>
+            <span class="result-value" id="kappa_score">70%</span>
+        </div>
+        <div class="result-item">
+            <span class="result-label">Area Under Curve:</span>
+            <span class="result-value" id="auc">0.85</span>
+        </div>
+        <div class="result-item">
+            <span class="result-label">Prediction:</span>
+            <span class="result-value" id="prediction">Predicting...</span>
+        </div>
+        <!-- Add more result items as needed -->
+    </div>
+</div>
+
+<script>
+    // Define sample prediction values for demonstration
+    const prediction = 1; // 1 indicates suffering, 0 indicates not suffering
+
+    // Function to update prediction result based on prediction value
+    function updatePredictionResult(prediction) {
+        const predictionElement = document.getElementById('prediction');
+
+        if (prediction === 1) {
+            predictionElement.textContent = 'Predicted to be suffering from heart disease.';
+            predictionElement.style.color = 'red';
+        } else {
+            predictionElement.textContent = 'Predicted to not be suffering from heart disease.';
+            predictionElement.style.color = 'green';
+        }
+    }
+
+    // Call the function with the sample prediction value
+    updatePredictionResult(prediction);
+</script>
+
+</body>
+</html>
+
